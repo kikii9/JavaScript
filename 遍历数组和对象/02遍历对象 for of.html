@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 2、ES6新增的方法，任何数据结构只要实现了Iterator接口，都可以被遍历
+        // Iterator?什么鬼
+        // 使用范围：Array、Set、Map、类数组对象（argument对象、DOMNODList对象）、字符串
+
+        // 字符串
+        let str = 'hello'
+        for (let s of str){
+            console.log(s);
+        }
+
+        // DOM元素集合
+        let domList = document.querySelectorAll('p')
+        for(let p of domList){
+            p.classList.add("test")
+        }
+
+        // arguments对象---类数组对象
+        // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments
+        function printArguments(){
+            for(let arg of arguments){
+                console.log(arg)
+            }
+        }
+        printArguments('a','b')
+
+        // 并不是所有的类数组对象都有Iterator接口，解决办法：使用Array.from()方法将一个类似数组或可迭代对象转换为一个浅拷贝的数组实例
+        let arrayLike = {
+            length:2,
+            0:'a',
+            1:'b'
+        }
+        // for(let key of arrayLike){
+        //     console.log(key)     //报错 Uncaught TypeError: arrayLike is not iterable    
+        // }
+        for(let key of Array.from(arrayLike)){
+            console.log(key)     //'a''b'  
+        }
+        // 普通对象
+        // 不能直接使用for of,需要部署了Iterator接口后才能使用
+        // 解决办法：使用Object.keys()方法将对象的键名生成一个数组，然后遍历
+        let obj={
+            name:'tom',
+            age:18
+        }
+        // for(let key of obj){
+        //     console.log(key)     //报错 Uncaught TypeError: obj is not iterable    
+        // }
+        for(let key of Object.keys(obj)){
+            console.log(key)     //报错 Uncaught TypeError: obj is not iterable    
+        }
+
+    </script>
+</body>
+</html>

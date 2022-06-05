@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // for的普通遍历
+        var name = ['tom', 'tom2', 'tom3']
+        for (var i = 0; i < name.length; i++) {
+            console.log(name[i]);
+        }
+        // for的优化版遍历
+        var name = ['tom', 'tom2', 'tom3'];
+        // 先缓存length
+        for (var i = 0, len = name.length; i < len; i++) {
+            console.log(name[i]);
+        }
+
+        // for in 
+        // 既可以遍历对象又可以遍历数组
+        // 遍历数组时会遍历非数字键名，因此不推荐使用
+        var name = ['tom', 'tom2', 'tom3']
+        for (let key in name) {
+            console.log('@@@'+name[key]);
+        }
+
+        // for of
+        // ES6新增方法
+        var arr0 = ['a','b','c']
+        for(let item of arr0){
+            console.log(item)
+        }
+
+        // forEach()方法
+        // 可遍历对象和数组
+        // 性能差
+        var arr1 = [1,2,3]
+        arr1.forEach((item)=>{
+            console.log(item)
+        })
+
+        // map()方法
+        // 支持return，相当于与原数组克隆了一份
+        var arr2 = [1,2,3]
+        var result = arr2.map((item)=>{
+            return item
+        })
+        console.log(result)
+
+        // 简写
+        // arr2.map(item=>item)
+    </script>
+</body>
+
+</html>

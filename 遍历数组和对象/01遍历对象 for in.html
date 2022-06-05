@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.for in
+        // 用于以任意顺序遍历对象的所有可枚举属性（包括对象自身和可继承的可枚举属性，不包含symbol属性）
+        let obj = {
+            name:'tom',
+            age:18,
+            [Symbol()]:'marry'
+        }
+        for(let key in obj){
+            console.log(key);   //name age
+        }
+
+        // 在原型上添加一个可枚举属性
+        Object.prototype.nationality = 'USA'
+
+        // 在原型上添加一个不可枚举属性
+        // defineProperties:定义属性
+        Object.defineProperty(obj, 'occupation', {
+        value: 'actress',
+        // enumerable：可枚举性
+        enumerable: false
+})
+
+        for (let key in obj){
+            console.log('@@@'+key)
+            console.log('AA'+obj[key])
+        }
+    </script>
+</body>
+</html>

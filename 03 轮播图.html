@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <img src="./images/1.jpg" alt="">
+    <button id="prev">prev</button>
+    <button id="next">next</button>
+    <p id="info"></p>
+    <script type="text/javascript">
+        window.onload = function () {
+            // 创建图片数组
+            var imgArr = [
+                "./images/1.jpg",
+                "./images/2.jpg",
+                "./images/3.jpg",
+                "./images/4.jpg",
+                "./images/5.jpg",
+                "./images/6.jpg",
+                "./images/7.jpg",
+                "./images/8.jpg",
+            ]
+            // 获取img标签
+            var img = document.getElementsByTagName("img")[0];
+            // 索引
+            var index = 0;
+            // 获取p标签
+            var info = document.getElementById("info");
+            info.innerHTML = "共有" + imgArr.length + "张图片，当前第" + (index + 1) + "张";
+
+
+            //   获取两个按钮
+            var prev = document.getElementById("prev");
+            var next = document.getElementById("next");
+            // 为两个按钮绑定事件
+            prev.onclick = function () {
+                index--;
+                if (index < 0) {
+                    index = imgArr.length - 1;
+                }
+                img.src = imgArr[index];
+                info.innerHTML = "共有" + imgArr.length + "张图片，当前第" + (index + 1) + "张";
+
+            };
+            next.onclick = function () {
+                index++;
+                if (index < imgArr.length - 1) {
+                    index = 0;
+                }
+
+                img.src = imgArr[index];
+                info.innerHTML = "共有" + imgArr.length + "张图片，当前第" + (index + 1) + "张";
+
+            };
+        };
+        // 总结：1、获取元素 2、对元素的属性进行操作或给元素绑定事件 
+    </script>
+</body>
+
+</html>
