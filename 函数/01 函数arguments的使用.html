@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        arguments是伪数组
+        1.具有数组的length属性
+        2.按照索引的方式进行存储
+        3.没有真正数组的push() pop()方法
+     -->
+    <script>
+        function fn(){
+            console.log(arguments)
+            console.log(arguments.length)
+            console.log(arguments[4])
+        }
+        fn(1,2,4,6,"tom")
+    </script>
+</body>
+</html>

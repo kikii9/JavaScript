@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 将arr的最后一个元素取出来作为newArr的第一个
+        function reverse(arr){
+            var newArr = [];
+            for(var i=arr.length-1; i>=0; i--){
+                newArr[newArr.length] = arr[i]
+            }
+            return newArr;
+        }
+
+        var arr0 = reverse([1,9,78,46,3])
+        console.log(arr0);
+    </script>
+</body>
+</html>
