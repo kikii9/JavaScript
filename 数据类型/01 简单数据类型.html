@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 五种基本数据类型：string number boolean undefined null
+        // null返回的是一个空对象
+        // 作用：如果有个变量以后打算存储为对象，暂时没想好赋值什么，这时赋初始值为null
+        // 简单数据类型存放在栈内
+
+        var a = null;
+        console.log(typeof a);   //object
+
+        // 简单数据类型传参
+        function fn(a){
+            a++; 
+            console.log(a)
+        }
+
+        var x = 10;
+        fn(x)
+        console.log(x)
+
+    </script>
+</body>
+</html>

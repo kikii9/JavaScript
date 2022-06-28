@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name){
+            this.name = name;
+        }
+
+        function fn(x){
+            console.log(x.name);    //jerry
+            x.name ='tom';
+            console.log(x.name);    //tom
+        }
+        
+        var p = new Person('jerry');
+        console.log(p.name);    //jerry
+
+        fn(p);
+        console.log(p.name);    //tom
+    </script>
+</body>
+</html>
